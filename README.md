@@ -5,7 +5,7 @@ This project consists of two Ruby scripts designed to process and analyze datase
 ## 📁 Project Structure
 
 ```text
-ton_dossier
+Data_Scientist
 ├── lib
 │   ├── 00_journalists.rb
 │   └── 01_cryptocurrencies.rb
