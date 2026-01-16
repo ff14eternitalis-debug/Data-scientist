@@ -11,46 +11,13 @@ questions = [
   "8. Répartition des handle par taille"
 ]
 
-puts "\n1. Nombre de handles dans l'array :"
-puts "   #{handles.length} handles"
-
-puts "\n2. Handle le plus court :"
 handle_plus_court = handles.min_by { |h| h.length }
-puts "   #{handle_plus_court} (#{handle_plus_court.length - 1} caractères sans le @)"
-
-puts "\n3. Nombre de handles avec exactement 5 caractères (sans le @) :"
 handles_5_chars = handles.select { |h| h[1..-1].length == 5 }
-puts "   #{handles_5_chars.length} handles"
-puts "   Exemples : #{handles_5_chars.first(5).join(', ')}"
-
-puts "\n4. Nombre de handles commençant par une majuscule :"
 handles_majuscule = handles.select { |h| h[1] =~ /[A-Z]/ }
-puts "   #{handles_majuscule.length} handles"
-
-puts "\n5. Liste triée par ordre alphabétique :"
 handles_alphabetique = handles.sort_by { |h| h.downcase }
-puts "   Premiers : #{handles_alphabetique.first(5).join(', ')}"
-puts "   Derniers : #{handles_alphabetique.last(5).join(', ')}"
-
-puts "\n6. Liste triée par taille (plus petits en premier) :"
 handles_par_taille = handles.sort_by { |h| h.length }
-puts "   Plus petits : #{handles_par_taille.first(5).join(', ')}"
-puts "   Plus grands : #{handles_par_taille.last(5).join(', ')}"
-
-puts "\n7. Position de @epenser dans l'array :"
 position_epenser = handles.index("@epenser")
-if position_epenser
-  puts "   Index #{position_epenser} (position #{position_epenser + 1} en comptant à partir de 1)"
-else
-  puts "   @epenser n'est pas dans la liste"
-end
-
-puts "\n8. Répartition des handles par taille (sans le @) :"
 repartition = handles.group_by { |h| h[1..-1].length }
-repartition.keys.sort.each do |taille|
-  count = repartition[taille].length
-  puts "   #{taille} caractères : #{count} handle#{'s' if count > 1}"
-end
 
 chosen_question = 0
 
